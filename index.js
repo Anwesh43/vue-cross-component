@@ -1,3 +1,30 @@
+class Animator {
+
+    constructor() {
+        this.components = []
+    }
+
+    add(component) {
+        this.components.push(component)
+        if (this.components.length == 1) {
+            this.start()
+        }
+    }
+
+    start() {
+        this.interval = setInterval(() => {
+            this.components.forEach((component, index) => {
+                component.update(() => {
+                    this.components.splice(index, 1)
+                    if (this.components.length == 0) {
+                        clearInterval(this.interval)
+                    }
+                })
+            })
+        })
+    }
+}
+
 class State {
 
     constructor() {
