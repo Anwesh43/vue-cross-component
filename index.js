@@ -51,6 +51,29 @@ class State {
     }
 }
 
+const animator = new Animator()
+
+Vue.component('cross', {
+    props : ['i'],
+    data() {
+        return {curr : 0, state : new State()}
+    },
+
+    methods : {
+        start() {
+            this.state.startUpdating(() => {
+                animator.add(this)
+            })
+        },
+        update(cb) {
+            this.curr = this.state.scale * 45
+            this.state.update(() => {
+                cb()
+            })
+        }
+    }
+})
+
 Vue.component('line', {
     props : ['rot'],
     template : '#linetemplate'
