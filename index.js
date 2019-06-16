@@ -21,7 +21,7 @@ class Animator {
                     }
                 })
             })
-        })
+        }, 20)
     }
 }
 
@@ -53,11 +53,18 @@ class State {
 
 const animator = new Animator()
 
+Vue.component('line-component', {
+    props : ['rot'],
+    template : '#linetemplate'
+})
+
 Vue.component('cross', {
     props : ['i'],
     data() {
         return {curr : 0, state : new State()}
     },
+
+    template : '#crossTemplate',
 
     methods : {
         start() {
@@ -74,10 +81,7 @@ Vue.component('cross', {
     }
 })
 
-Vue.component('line', {
-    props : ['rot'],
-    template : '#linetemplate'
-})
+
 
 const vueInstance = new Vue({
     el : '#app',

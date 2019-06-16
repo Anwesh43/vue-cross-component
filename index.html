@@ -7,19 +7,23 @@
             <cross v-for = "num in numbers" :i = "num">
             </cross>
         </div>
-        <script type = "html/template" id = "linetemplate">
+        <script type = "x-html/template" id = "linetemplate">
             <div class = "line" :style="{webkitTransform:`rotateZ(${rot}deg)`}">
             </div>
         </script>
-        <script type = "html/template" id = "crossTemplate">
-            <div class = "block" :stlye = "{left : `${200 + i * 200}px`, webkitTransform: `rotateZ(${curr}deg)`}" @click="start">
-                <line rot = "0"/>
-                <line rot = "90"/>
+        <script type = "x-html/template" id = "crossTemplate">
+            <div class = "block" :style = "{left : `${200 + i * 200}px`, webkitTransform: `rotateZ(${curr}deg)`}" @click="start">
+                <div class = "circle">
+                </div>
+                <line-component rot = "0">
+                </line-component>
+                <line-component rot = "90">
+                </line-component>
             </div>
         </script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js">
         </script>
-        <script src=index.js"">
+        <script src="index.js">
         </script>
     </body>
 </html>
