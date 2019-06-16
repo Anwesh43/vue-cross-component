@@ -1,3 +1,8 @@
+Vue.component('line', {
+    props : ['rot'],
+    template : '#linetemplate'
+})
+
 const vueInstance = new Vue({
     el : '#app',
     data : {
